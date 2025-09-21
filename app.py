@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+import math  # ✅ Added
 
 # ------------------------------------------------------
 # Streamlit App Configuration
@@ -33,8 +34,8 @@ start = st.sidebar.button("Start Simulation")
 def hrf(t, peak=6, under=16, ratio=0.166):
     """Approximate Hemodynamic Response Function (HRF)"""
     return (
-        (t ** peak * np.exp(-t)) / np.math.factorial(peak)
-        - ratio * (t ** under * np.exp(-t)) / np.math.factorial(under)
+        (t ** peak * np.exp(-t)) / math.factorial(peak)
+        - ratio * (t ** under * np.exp(-t)) / math.factorial(under)
     )
 
 # ------------------------------------------------------
